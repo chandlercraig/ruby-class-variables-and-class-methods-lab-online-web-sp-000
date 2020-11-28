@@ -32,14 +32,7 @@ class Song
   end
 
   def self.genre_count
-    @@genres.each do |song_genre|
-      if @@g_count_hash[song_genre]
-        @@g_count_hash.each {|genre_key, value| value+=1}
-      else
-        @@g_count_hash[song_genre]
-        @@g_count_hash[song_genre] = 1
-      end
-    end
+    @@genres.group_by(&:itself).each {|key,value| @@genre_count[key] = value.count}
     @@g_count_hash
   end
 
