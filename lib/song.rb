@@ -32,7 +32,7 @@ class Song
   end
 
   def self.genre_count
-    @@genres.group_by(&:itself).each {|key,value| @@genre_count[key] = value.count}
+    @@genres.group_by(&:itself).each {|key,value| @@g_count_hash[key] = value.count}
     @@g_count_hash
   end
 
